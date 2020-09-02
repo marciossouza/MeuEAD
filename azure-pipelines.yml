@@ -54,3 +54,11 @@ steps:
   inputs:
     artifactName: 'MobEAD'
     pathToPublish: 'd:\a\1\a'
+    
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'VSTest'
+    testResultsFiles: '**/TEST-*.xml'
+    testRunTitle: 'Building Test'
+    buildPlatform: '''$(buildPlatform)'''
+    buildConfiguration: '''$(buildConfiguration)'''

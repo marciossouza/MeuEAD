@@ -45,6 +45,15 @@ steps:
     configuration: '$(buildConfiguration)'
     testAssemblyVer2: '$(Build.SourcesDirectory)/test**.js'
  
+ 
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'VSTest'
+    testResultsFiles: 'D:\a\_temp\TestResult/*.trx'
+    testRunTitle: 'Building Test'
+    buildPlatform: '''$(buildPlatform)'''
+    buildConfiguration: '''$(buildConfiguration)'''
+
 - task: CopyFiles@2
   inputs:
     contents: '**/*.*'
@@ -55,10 +64,3 @@ steps:
     artifactName: 'MobEAD'
     pathToPublish: 'd:\a\1\a'
     
-- task: PublishTestResults@2
-  inputs:
-    testResultsFormat: 'VSTest'
-    testResultsFiles: '**/*.trx'
-    testRunTitle: 'Building Test'
-    buildPlatform: '''$(buildPlatform)'''
-    buildConfiguration: '''$(buildConfiguration)'''

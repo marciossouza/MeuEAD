@@ -253,7 +253,7 @@ Copyright (c) 2011 by Harvest
     AbstractChosen.prototype.generate_random_char = function() {
       var chars, newchar, rand;
       chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-      rand = Math.floor(Math.random() * chars.length);
+      rand = Math.floor(crypto.getRandomValues() * chars.length);
       return newchar = chars.substring(rand, rand + 1);
     };
 
